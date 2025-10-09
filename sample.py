@@ -1,0 +1,24 @@
+import mysql.connector
+
+#Setting up connection with MySQL servers
+conn = mysql.connector.connect(
+    host = "127.0.0.1",
+    user = 'root',
+    database = 'Relatify',
+    password = 'Waheguru1313_',
+    port = 3306
+)
+
+#Creating a cursor object
+cursor = conn.cursor()
+
+#.execute is used for executing queries
+cursor.execute("SELECT * FROM Users")
+rows = cursor.fetchall()
+
+for r in rows:
+    print(r)
+
+#closing connection with cursor
+cursor.close()
+conn.close()
