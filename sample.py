@@ -1,3 +1,6 @@
+#You Must first install mysql.connector in your system, for this execute following query
+#pip install mysql-connector-python
+
 import mysql.connector
 
 #Setting up connection with MySQL servers
@@ -5,7 +8,7 @@ conn = mysql.connector.connect(
     host = "127.0.0.1",
     user = 'root',
     database = 'Relatify',
-    password = 'Waheguru1313_',
+    password = 'ENTER YOUR ACCOUNT PASSWORD HERE',
     port = 3306
 )
 
