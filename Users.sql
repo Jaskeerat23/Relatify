@@ -4,7 +4,7 @@ USE Relatify;
 --Normal Audiences using this application for exploring events
 CREATE TABLE Users(
     UserId INT PRIMARY KEY AUTO_INCREMENT,
-    UserName VARCHAR(25),
+    UserName VARCHAR(25) UNIQUE,
     Fname VARCHAR(25),
     Mname VARCHAR(25),
     Lname VARCHAR(25),
@@ -23,7 +23,7 @@ CREATE TABLE Users(
 --about the fest of their favourite artists
 CREATE TABLE Artists(
     ArtistId INT PRIMARY KEY AUTO_INCREMENT,
-    UserName VARCHAR(25),
+    UserName VARCHAR(25) UNIQUE,
     StageName VARCHAR(25),
     Fname VARCHAR(25),
     Mname VARCHAR(25),
@@ -42,7 +42,7 @@ CREATE TABLE Artists(
 --organizes fest for eg Graphic Era organizes Grafest
 CREATE TABLE Organizers(
     OrgId INT PRIMARY KEY AUTO_INCREMENT,
-    UserName VARCHAR(25),
+    UserName VARCHAR(25) UNIQUE,
     OrgName VARCHAR(50),
     Email VARCHAR(50),
     AccountPassword VARCHAR(25),
@@ -51,7 +51,7 @@ CREATE TABLE Organizers(
 
 CREATE TABLE Crewmembers(
     MemberId INT PRIMARY KEY AUTO_INCREMENT,
-    UserName VARCHAR(25),
+    UserName VARCHAR(25) UNIQUE,
     Fname VARCHAR(25),
     Mname VARCHAR(25),
     Lname VARCHAR(25),
