@@ -8,7 +8,7 @@ conn = mysql.connector.connect(
     host = "127.0.0.1",
     user = 'root',
     database = 'Relatify',
-    password = 'Waheguru1313_',
+    password = 'ENTER YOUR ACCOUNT PASSWORD HERE',
     port = 3306
 )
 
