@@ -3,7 +3,7 @@ import mysql.connector
 conn = mysql.connector.connect(
     host = '127.0.0.1',
     user = 'root',
-    password = 'Waheguru1313_',
+    password = 'as4023755',
     database = 'Relatify',
     port = 3306
 )
