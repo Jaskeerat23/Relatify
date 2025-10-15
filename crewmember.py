@@ -7,23 +7,21 @@ All functions use only the Crewmembers table.
 
 import mysql.connector
 
-# ==============================================================
-# 🧱 Database Connection
-# ==============================================================
+
+# Database Connection
+
 
 conn = mysql.connector.connect(
     host='127.0.0.1',
     user='root',
-    password='as4023755',  # change if needed
+    password='as4023755',  
     database='Relatify',
     port=3306
 )
 
 cursor = conn.cursor()  # tuple-based cursor is fine here
 
-# ==============================================================
-# 1️⃣ showMyEvents(memberId)
-# ==============================================================
+#  showMyEvents(memberId)
 
 def showMyEvents(memberId: int):
     """
@@ -39,10 +37,10 @@ def showMyEvents(memberId: int):
         if result:
             full_name = " ".join([name for name in result[:3] if name])
             return {
-                "FullName": full_name,
-                "City": result[3],
-                "Role": result[4],
-                "DOJ": result[5]
+                "FullName": str(full_name),
+                "City": str(result[3]),
+                "Role": str(result[4]),
+                "DOJ": str(result[5])
             }
         else:
             return "No such member found."
@@ -51,9 +49,9 @@ def showMyEvents(memberId: int):
     except Exception as e:
         return f"Error: {e}"
 
-# ==============================================================
-# 2️⃣ showUpcomingTasks(memberId)
-# ==============================================================
+
+#  showUpcomingTasks(memberId)
+
 
 def showUpcomingTasks(memberId: int):
     """
@@ -71,9 +69,9 @@ def showUpcomingTasks(memberId: int):
     except Exception as e:
         return f"Error: {e}"
 
-# ==============================================================
-# 3️⃣ updateProfile(memberId, newFname, newMname, newLname, newEmail, newPhoneNo, newCity)
-# ==============================================================
+
+# updateProfile(memberId, newFname, newMname, newLname, newEmail, newPhoneNo, newCity)
+
 
 def updateProfile(memberId: int, newFname: str, newMname: str, newLname: str,
                   newEmail: str, newPhoneNo: str, newCity: str, confirm: bool = True):
@@ -100,9 +98,9 @@ def updateProfile(memberId: int, newFname: str, newMname: str, newLname: str,
     except Exception as e:
         return f"Error: {e}"
 
-# ==============================================================
-# 4️⃣ changePassword(memberId, oldPass, newPass)
-# ==============================================================
+
+#  changePassword(memberId, oldPass, newPass)
+
 
 def changePassword(memberId: int, oldPass: str, newPass: str, confirm: bool = True):
     """
@@ -131,9 +129,9 @@ def changePassword(memberId: int, oldPass: str, newPass: str, confirm: bool = Tr
     except Exception as e:
         return f"Error: {e}"
 
-# ==============================================================
-# 5️⃣ taskStats(memberId)
-# ==============================================================
+
+# taskStats(memberId)
+
 
 def taskStats(memberId: int):
     """
@@ -144,9 +142,9 @@ def taskStats(memberId: int):
         member = cursor.fetchone()
         if member:
             return {
-                "Name": f"{member[0]} {member[1]}",
-                "Role": member[2],
-                "DOJ": member[3],
+                "Name": f"{str(member[0])} {str(member[1])}",
+                "Role": str(member[2]),
+                "DOJ": str(member[3]),
                 "TasksCompleted": 0,
                 "TasksPending": 0
             }
@@ -157,11 +155,11 @@ def taskStats(memberId: int):
     except Exception as e:
         return f"Error: {e}"
 
-# ==============================================================
-# 🧪 Testing
-# ==============================================================
 
-if __name__ == "__main__":
+#  Testing
+
+
+if __name__ == "_main_":
     print("\n🧩 showMyEvents()")
     print(showMyEvents(1))
 
